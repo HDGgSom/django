@@ -1,0 +1,16 @@
+{% extends 'master.html' %}
+
+{% block page_title %}
+{{ page_title }}
+{% endblock %}
+
+{% block page_content %}
+<ul class="goods_list">
+    {% for itm in goods %}
+    <li class="goods-list__item">
+        <a class="goods-list__item-link" href="{% url 'goods:detail' pk=itm.id%}">{{ itm.name| title }}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

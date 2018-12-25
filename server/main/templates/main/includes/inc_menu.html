@@ -1,0 +1,8 @@
+<ul class="menu">
+    <li><a href="{% url 'main:main' %}" class="{% if request.resolver_match.url_name == 'main' %}active{% endif %}">домой</a></li>
+    <li><a href="{% url 'main:products' %}" class="{% if request.resolver_match.url_name == 'products' %}active{% endif %}">продукты</a></li>
+    <li><a href="{% url 'main:contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">контакты</a></li>
+    <li><a href="{% url 'goods:index' %}" class="{% if request.resolver_match.url_name == 'index' or request.resolver_match.url_name == 'detail'%}active{% endif %}">Фрукты</a></li>
+</ul>
+<a href="#" class="search"></a>
+<a href="#" class="basket"></a>
