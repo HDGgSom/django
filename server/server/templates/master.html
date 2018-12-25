@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,25 +7,18 @@
 	<title>
         {% block page_title %} {% endblock %}
     </title>
-	<link rel="stylesheet" type="text/css" href="/static/style.css">
-	<link rel="stylesheet" href="/static/fonts/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+	<link rel="stylesheet" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
 </head>
 <body>
 	<div class="container">
 
-        {% if page_title == 'Магазин' %}
+        {% if request.resolver_match.url_name == 'main' %}
 
         <div class="slider">
             <div class="header clearfix">
                 <a href="index.html" class="logo"></a>
-                <ul class="menu">
-                    <li>Сегодняшняя дата: {% now "d.M.y" %}</li>
-                    <li><a href="/" class="active">домой</a></li>
-                    <li><a href="/products/">продукты</a></li>
-                    <li><a href="/contact/">контакты</a></li>
-                </ul>
-                <a href="#" class="search"></a>
-                <a href="#" class="basket"></a>
+                {% include 'main/includes/inc_menu.html' %}
             </div>
             <div class="text-slider">
                 <h3 class="green">тенденции</h3>
@@ -36,33 +31,28 @@
             </div>
         </div>
 
-        {% elif page_title == 'Каталог' %}
+        {% elif request.resolver_match.url_name == 'products' %}
         
         <div class="hero-white">
             <div class="header clearfix">
                 <a href="index.html" class="logo"></a>
-                <ul class="menu">
-                    <li><a href="/">домой</a></li>
-                    <li><a href="/products/" class="active">продукты</a></li>
-                    <li><a href="/contact/">контакты</a></li>
-                </ul>
-                <a href="#" class="search"></a>
-                <a href="#" class="basket"></a>
+                {% include 'main/includes/inc_menu.html' %}
             </div>
         </div>
-        {% else %}
+        {% elif request.resolver_match.url_name == 'contact' %}
         <div class="hero">
             <div class="header clearfix">
-                <a href="index.html" class="logo"></a>
-                <ul class="menu">
-                    <li><a href="/">домой</a></li>
-                    <li><a href="/products/">продукты</a></li>
-                    <li><a href="/contact/" class="active">контакты</a></li>
-                </ul>
-                <a href="#" class="search"></a>
-                <a href="#" class="basket"></a>
+                <a href="index.html" class="logo"></a>                
+                {% include 'main/includes/inc_menu.html' %}
             </div>
             <h1>наши контакты</h1>
+        </div>
+        {% else %}
+        <div class="hero-white">
+            <div class="header clearfix">
+                <a href="index.html" class="logo"></a>
+                {% include 'main/includes/inc_menu.html' %}
+            </div>
         </div>
         {% endif %}
         

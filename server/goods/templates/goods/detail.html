@@ -1,0 +1,16 @@
+{% extends 'master.html' %}
+
+{% block page_title %}
+{{ object.name| title }}
+{% endblock %}
+
+{% block page_content %}
+    {% if object %}
+        <h1 class="object__name">{{ object.name| title }}</h1>
+        <span class="object__description">
+            {{ object.description }}
+        </span>
+    {% else %}
+        <p>Страницы данного товара не существует</p>
+    {% endif %}
+{% endblock %}

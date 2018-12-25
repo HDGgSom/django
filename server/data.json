@@ -1,0 +1,24 @@
+{
+    "goods": [
+        {
+            "name": "banana",
+            "description": "This is banana. Just a banana."
+        },
+        {
+            "name": "apple",
+            "description": "This is apple. Just an apple."
+        },
+        {
+            "name": "qiwi",
+            "description": "This is qiwi. Just a qiwi."
+        },
+        {
+            "name": "appricot",
+            "description": "This is appricot. Just an appricot."
+        },
+        {
+            "name": "cherry",
+            "description": "This is cherry. Just a cherry."
+        }
+    ]
+}
